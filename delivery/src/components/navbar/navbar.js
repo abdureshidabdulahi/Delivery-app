@@ -4,6 +4,7 @@ import './navbar.css';
 
 const Navbar = () => {
   const [menu,setMenu] =  useState('home')
+   
   return (
     <div className='navbar'>
     <img src={assets.logo} className='logo'  alt=''/>
@@ -16,9 +17,9 @@ const Navbar = () => {
     </ul>
     <div className='navbar-menu-right'>
       <img src={assets.search_icon} className='search-icon' alt=''/>
-      <div>
+      <div className='navbar-search-icon'>
         <img src={assets.basket_icon} alt=''/>
-         
+         <div className='dot'></div>
       
       </div>
       <button>sign in</button>

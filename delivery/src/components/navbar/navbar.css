@@ -18,8 +18,11 @@ box-sizing: border-box;
 .navbar-menu{
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 30px;
      font-family: Outfit; 
+}
+.navbar-menu li{
+    cursor: pointer;
 }
 .navbar-menu-right{
     display: flex;
@@ -43,5 +46,18 @@ box-sizing: border-box;
     padding-bottom: 2px ;
     border-bottom: 2px solid #49557e;
 
+}
+.navbar-search-icon{
+    position: relative;
+
+}
+.navbar-search-icon .dot{
+    position: absolute;
+    background-color: tomato;
+    width: 10px;
+    height: 10px;
+    top: -8px;
+    right: -8px;
+    border-radius: 5px;
 }
 
