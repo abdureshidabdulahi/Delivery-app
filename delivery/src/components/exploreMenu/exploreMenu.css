@@ -1,0 +1,32 @@
+ @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap');
+
+.exploremenu{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.exploremenu h1{
+    color: #262626;
+    font-weight: 500;
+    font-family: Outfit;
+}
+.explore-menu-list{
+    display: flex;
+    overflow-x: scroll;
+    margin: 20px 0;
+    gap: 20px;
+}
+.explore-menu-list::-webkit-scrollbar{
+    display: none;
+}
+.explore-menu-list-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.explore-menu-text{
+     columns: #808080;
+    max-width: 60%;
+}
