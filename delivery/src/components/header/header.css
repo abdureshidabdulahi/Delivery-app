@@ -1,5 +1,41 @@
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap');
+ 
  .header-app{
     height: 34vw;
     background-image: url('../../food-del-assets/assets/frontend_assets/header_img.png');
     background-size: contain;
+    position: relative;
+   
  }
+ .header-info{
+   display: flex;
+   flex-direction: column;
+   position: absolute;
+   bottom: 10%;
+   left: 34px;
+   width: 50%;
+    gap: 10px;
+    animation: fadeIn 3s;
+ }
+ .header-info h1{
+   color: white;
+   font-size: 50px;
+   font-family: Outfit;
+ }
+.header-info p{
+   color: white;
+   font-size: 18px;
+   font-family: Outfit;
+}
+.header-info button{
+   width: fit-content;
+   height: fit-content; 
+   cursor: pointer;
+   font-family: Outfit;
+   color: #747474;
+   font-weight: 500;
+   border: none;
+   padding: 1vw 2.3vw;
+   font-size: 16px;
+   border-radius: 20px;
+}
