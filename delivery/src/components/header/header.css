@@ -1,0 +1,5 @@
+ .header-app{
+    height: 34vw;
+    background-image: url('../../food-del-assets/assets/frontend_assets/header_img.png');
+    background-size: contain;
+ }

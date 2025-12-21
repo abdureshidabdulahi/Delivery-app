@@ -1,4 +1,4 @@
-import './PlaceOrder.css'
+ import './placeOrder.css'
 
 export default  function PlaceOrder(){
     return(
