@@ -10,9 +10,9 @@ export default function ExploreMenu({category,setCactagory}){
             finest ingredients and culinary expertise our mission is to satisfy your cravings and elevate
             your dining experience,one delicious meal at a timer
             </p>
-            <div className="explore-menu-list">
+            <div className="explore-menu-list" >
                 {menu_list.map((item,index)=>(
-                    <div key={index} className='explore-menu-list-item'>
+                    <div key={index} className='explore-menu-list-item ' >
                        <img src={item.menu_image} alt=""/>
                        <p>{item.menu_name}</p>
                     </div>
