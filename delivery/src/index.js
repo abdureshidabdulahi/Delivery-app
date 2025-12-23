@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client'; 
 import App from './App';
  import {BrowserRouter} from 'react-router-dom'
-import StoreContextProvider from './components/context/context';
+import StoreContextProvider from './components/context/storeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
