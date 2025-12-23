@@ -9,7 +9,7 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
             if(!cartItem[itemId]){
                 setCartItem((pre)=>({...pre,[itemId]:1}))
             }else{
-                
+                setCartItem((pre)=>({...pre,[itemId]:pre[itemId]+1}))
             }
     }
 
