@@ -3,11 +3,11 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
  export const storeContext = createContext(null)
 
  const StoreContextProvider = (props)=>{
-    const contextVlue={
+    const contextValue={
             food_list
     }
     return(
-        <storeContext.Provider value={contextVlue}>
+        <storeContext.Provider value={contextValue}>
             {props.children}
         </storeContext.Provider>
     )
