@@ -12,7 +12,7 @@ export default function ExploreMenu({category,setCactagory}){
             </p>
             <div className="explore-menu-list" >
                 {menu_list.map((item,index)=>(
-                    <div key={index} className='explore-menu-list-item'>
+                    <div key={index}  >
                        <img src={item.menu_image} alt=""/>
                        <p>{item.menu_name}</p>
                     </div>
