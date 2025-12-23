@@ -25,3 +25,17 @@
     font-weight: 500;
     font-family: Outfit;
 }
+.food-item-name-rating img{
+    width: 70px;
+}
+.food-item-description{
+    color: #676767;
+    font-size: 12px;
+    font-family: Outfit;
+}
+.food-item-price{
+    color: tomato;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 10px 0px;
+}

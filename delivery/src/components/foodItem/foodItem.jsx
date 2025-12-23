@@ -1,11 +1,25 @@
  
- import { assets } from '../../food-del-assets/assets/frontend_assets/assets'
+ import { useState } from 'react'
+import { assets } from '../../food-del-assets/assets/frontend_assets/assets'
 import './foodItem.css'
 const FoodItem = ({id,name,price,description,image}) => {
+
+    const [itemcount,setCount] = useState(0)
   return (
     <div className='food-item'>
       <div className="food-item-image-container">
         <img className='food-item-image' src={image} alt="" />
+        {
+            !itemcount?<img className='add' onClick={()=>{
+                setCount(prev=>prev+1)
+            console.log(itemcount)
+         } } src={assets.add_icon_white} alt=''/>
+            :<div className='food-item-counter'>
+
+            </div>
+
+      
+        }
       </div>
       <div className="food-item-info">
         <div className="food-item-name-rating">
