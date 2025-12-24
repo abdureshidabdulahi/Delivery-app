@@ -12,8 +12,8 @@ export default function ExploreMenu({category,setCactagory}){
             </p>
             <div className="explore-menu-list" >
                 {menu_list.map((item,index)=>(
-                    <div key={index}  >
-                       <img src={item.menu_image} alt=""/>
+                    <div key={index}>
+                       <img src={item.menu_image} alt=""  className={category?'active':''} onClick={()=>setCactagory('all')} />
                        <p>{item.menu_name}</p>
                     </div>
                 ))}
