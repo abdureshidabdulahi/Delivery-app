@@ -32,17 +32,18 @@
      columns: #808080;
     max-width: 60%;
 }
-.explore-menu-list-item img{
+.explore-menu-list img{
     width: 7.5vw;
     min-width: 80px;
-    border-radius: 50%; ;
+    border-radius: 50%;
     
 
 }
-.explore-menu-list-item p{
+.explore-menu-list p{
     margin-top: 10px;
     color: #747474;
     font-size: max(1.4vw,16px);
+    text-align: center;
      
 }
 .exploremenu hr{
@@ -52,5 +53,8 @@
 }
 .explore-menu-list .active{
     border: 2px solid tomato;
+    border-radius: 50%;
+      width: 7.5vw;
+    min-width: 80px;
     border-radius: 50%;
 }

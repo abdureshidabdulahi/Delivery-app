@@ -1,7 +1,7 @@
 
 import './exploreMenu.css'
 import { menu_list } from '../../food-del-assets/assets/frontend_assets/assets'
-export default function ExploreMenu({category,setCactagory}){
+export default function ExploreMenu({category,setCategory}){
     return(
         <div className="exploremenu" id='explore-menu'>
             <h1>Explore Our Menu</h1>
@@ -12,8 +12,8 @@ export default function ExploreMenu({category,setCactagory}){
             </p>
             <div className="explore-menu-list" >
                 {menu_list.map((item,index)=>(
-                    <div key={index}>
-                       <img src={item.menu_image} alt=""  className={category?'active':''} onClick={()=>setCactagory('all')} />
+                <div key={index}  onClick={()=>setCategory(item.menu_name)}>
+                       <img src={item.menu_image} alt="" className={category===item.menu_name?'active':''}/>
                        <p>{item.menu_name}</p>
                     </div>
                 ))}
