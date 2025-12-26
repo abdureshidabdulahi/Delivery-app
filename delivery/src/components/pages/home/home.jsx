@@ -4,6 +4,7 @@ import './home.css'
 import ExploreMenu from '../../exploreMenu/exploreMenu'
 import { useState } from 'react'
 import FoodDisplay from '../../foodDisplay/foodDisplay'
+import AppDownload from '../../AppDownload/AppDownload'
 export  default function Home(){
   const [category,setCategory] = useState('all')
     return(
@@ -11,6 +12,7 @@ export  default function Home(){
           <Header/>
           <ExploreMenu category={category} setCategory={setCategory}/>
           <FoodDisplay category={category}/>
+          <AppDownload/>
         </div>
     )
 }
