@@ -43,19 +43,30 @@
    .header-app{
       height: 38vw;
    }
+
    .header-info{
-      max-width: 45px;
+      max-width: 45%;
    }
 }
+
 @media (max-width:750px) {
-   .header-info{
-      width: 55%;
+   .header-app{
+      min-height: 300px;
    }
-   .header-info p {
+
+   .header-info{
+     font-size: 16px;
+   }
+
+   .header-info p{
       display: none;
    }
-   .header-info button{
-      padding: 2vw 4vw;
+
+   .header-info h1{
+      font-size: 32px;
    }
-   
+
+   .header-info button{
+      padding: 10px 20px;
+   }
 }
