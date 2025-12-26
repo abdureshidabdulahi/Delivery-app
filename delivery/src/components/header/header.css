@@ -39,3 +39,23 @@
    font-size: 16px;
    border-radius: 20px;
 }
+@media (max-width:1050px) {
+   .header-app{
+      height: 38vw;
+   }
+   .header-info{
+      max-width: 45px;
+   }
+}
+@media (max-width:750px) {
+   .header-info{
+      width: 55%;
+   }
+   .header-info p {
+      display: none;
+   }
+   .header-info button{
+      padding: 2vw 4vw;
+   }
+   
+}
