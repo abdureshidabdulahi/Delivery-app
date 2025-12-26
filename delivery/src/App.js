@@ -5,11 +5,13 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/pages/home/home";
 import Cart from "./components/pages/cart/cart";
 import PlaceOrder from "./components/pages/placeOrder/placeOrder.jsx";
+import Footer from "./components/footer/footer.jsx";
  
 
 function App() {
   return (
-    <div className="App">
+    <>
+     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -17,6 +19,9 @@ function App() {
         <Route path="/placeOrder" element={<PlaceOrder/>}/>
       </Routes>
     </div>
+    <Footer/>
+    </>
+   
   );
 }
 
