@@ -40,34 +40,84 @@
    border-radius: 20px;
 }
 @media (max-width:1050px) {
-   .header-app{
-      height: 38vw;
+    .header-info p{
+        color: white;
+   font-size: 16px;
+   font-family: Outfit;
+      
    }
+    .header-info h1{
+      font: 45px Outfit;
+      font-weight: 500;
+    
+    }
+     .header-info{ 
+      left: 30px ;
+      bottom: 8%;
 
-   .header-info{
-      max-width: 45%;
    }
+   
+}
+@media (max-width:950px) {
+
+     .header-info p{
+        color: white;
+   font-size: 14px;
+   font-family: Outfit;
+      
+   }
+    .header-info h1{
+      font: 40px Outfit;
+      font-weight: 500;
+    
+    }
+   
+}
+@media (max-width:850px) {
+
+     .header-info p{
+        color: white;
+   font-size: 12px;
+   font-family: Outfit;
+      
+   }
+    .header-info h1{
+      font: 35px Outfit;
+      font-weight: 500;
+    
+    }
+   
 }
 
+
+
 @media (max-width:750px) {
-   .header-app{
-      min-height: 34vw;
-   }
-
-   .header-info{
-     font-size: 16px;
-     margin: auto 10px;
-   }
-
    .header-info p{
       display: none;
    }
 
-   .header-info h1{
-      font-size: 32px;
-   }
+    .header-info h1{
+      font-size: 40px;
+    }
+   .header-info{ 
+      width: 70%;
 
-   .header-info button{
-      padding: 10px 20px;
    }
+  
+}
+@media (max-width: 600px) {
+    .header-info h1{
+      font-size: 35px;
+    }
+   
+}
+@media (max-width:530px) {
+    .header-info h1{
+      font-size: 30px;
+    }
+}
+@media (max-width:450px){
+    .header-info h1{
+      font-size: 25px;
+    }
 }
