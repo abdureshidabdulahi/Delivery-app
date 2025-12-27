@@ -50,3 +50,35 @@ cursor: pointer;
     background-color: grey;
     border: none;
 }
+@media (max-width:750px) {
+    .footer{
+        width: 100%;
+        max-width: 100vw;
+    }
+    .footer-content{
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+    .footer-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    gap: 20px;
+}
+.footer-content-left li,.footer-content-right li,.footer-content-center li{
+  list-style: none;
+margin-bottom: 5px;
+font-family: Outfit;
+cursor: pointer;
+font-size: 14px;
+
+}
+ .footer-content-right li h2,.footer-content-center li h2{
+ color: white;
+ font-family: Outfit;
+ font-size: 14px;
+
+}
+}
