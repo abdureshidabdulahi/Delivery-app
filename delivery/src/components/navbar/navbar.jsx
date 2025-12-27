@@ -2,7 +2,7 @@
 import { assets } from '../../food-del-assets/assets/frontend_assets/assets';
 import './navbar.css';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [menu,setMenu] =  useState('home')
    
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
          <div className='dot'></div>
       
       </div>
-      <button>sign in</button>
+      <button onClick={()=>setShowLogin(true)}>sign in</button>
     </div>
 
     </div> 
