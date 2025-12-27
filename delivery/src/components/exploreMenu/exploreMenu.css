@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 .exploremenu h1{
     color: #262626;
@@ -58,12 +59,17 @@
     min-width: 80px;
     border-radius: 50%;
 }
-@media (max-width:1050px){
-
-    
-}
+ @media (max-width:975px){
+     .explore-menu-list{
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: scroll;
+     }
+ }
 @media (max-width:750px) {
-    
+.explore-menu-text {
+    max-width: 100%; 
+}
      
  
     
