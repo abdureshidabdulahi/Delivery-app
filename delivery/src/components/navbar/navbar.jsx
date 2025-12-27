@@ -1,6 +1,7 @@
  import { useState } from 'react';
 import { assets } from '../../food-del-assets/assets/frontend_assets/assets';
 import './navbar.css';
+ import { Link } from 'react-router-dom';
 
 const Navbar = ({setShowLogin}) => {
   const [menu,setMenu] =  useState('home')
@@ -18,7 +19,7 @@ const Navbar = ({setShowLogin}) => {
     <div className='navbar-menu-right'>
       <img src={assets.search_icon} className='search-icon' alt=''/>
       <div className='navbar-search-icon'>
-        <img src={assets.basket_icon} alt=''/>
+         <Link to='/cart'> <img src={assets.basket_icon} alt=''/></Link>
          <div className='dot'></div>
       
       </div>
