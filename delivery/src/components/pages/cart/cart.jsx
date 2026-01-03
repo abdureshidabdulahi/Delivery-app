@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom'
 export default function Cart(){
     const {cartItem,food_list,removeFromCart,getTotalCartAmount} = useContext(storeContext)
     const navigate = useNavigate()
-    console.log(cartItem)
+  
     return(
         <div className="cart">
             <div className="cart-items">
@@ -48,17 +48,17 @@ export default function Cart(){
                     <div>
                         <div className="cart-tatal-details">
                             <p>Subtotal</p>
-                            <p>${getTotalCartAmount()}</p>
+                            <p>${ }</p>
                         </div>
                         <hr />
                         <div className="cart-tatal-details">
                             <p>Delevery Fee</p>
-                            <p>${getTotalCartAmount() === isNaN ? 0 : 2}</p>
+                            <p>${2}</p>
                         </div>
                         <hr />
                         <div className="cart-tatal-details">
                               <b>Total</b>
-                              <b>${getTotalCartAmount()===0?0:getTotalCartAmount() + 2}</b>
+                              <b>${ }</b>
                         </div> 
                     </div>
                        <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>

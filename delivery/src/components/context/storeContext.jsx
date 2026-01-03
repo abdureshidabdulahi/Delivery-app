@@ -15,24 +15,23 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
     const removeFromCart = (itemId)=>{
         setCartItem((pre)=>({...pre,[itemId]:pre[itemId]-1}))
     }
-
+ 
+ let totalAmount = 0;
+   const getTotalCartAmount = (()=>{
+    console.log(cartItem)
+    for(let key in cartItem){
+      
+         
+           let itemPrice = food_list.find((product)=>product._id === key);
+        
+        totalAmount += itemPrice.price*cartItem[key]
+    } 
+    console.log('me inside',totalAmount)
+     return totalAmount;
+   })()
+//    console.log('me outside',totalAmount)
    
-   const getTotalCartAmount = ()=>{
-    let totalAmount = 0;
-    for(const item in cartItem){
-        // console.log('here =',item)
-        console.log(cartItem[item])
-          if(cartItem[item]>0){
-           let itemInfo = food_list.find((product)=>product._id === item);
-        //    console.log(itemInfo)
-        totalAmount += itemInfo.price*cartItem[item]
-    }
-    return totalAmount;
-    }
-     
-  
 
-   }
     const contextValue={
             food_list,
             cartItem,
@@ -41,7 +40,7 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
             removeFromCart,
             getTotalCartAmount
     }
-    console.log('this is the cart items: ',cartItem)
+    // console.log('this is the cart items: ',cartItem)
   
     return(
         <storeContext.Provider value={contextValue}>
