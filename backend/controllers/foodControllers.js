@@ -43,4 +43,26 @@ const listeFood = async (req,res)=>{
          })
       }
 }
-export {addfood,listeFood}
+
+// remove food item
+
+const removeFood = async (req,res)=>{
+   try{
+      const food = await foodmodel.findById(req.body.id)
+      // console.log('this is what you asked:',food)
+      fs.unlink(`uploads/${food.image}`,()=>{})
+      await foodmodel.findByIdAndDelete(req.body.id)
+      console.log(foodmodel)
+      res.json({
+         state:'success',
+         foodmodel
+      })
+
+   }catch(error){
+      console.log('sory could not find the data')
+
+   }
+   
+   
+}
+export {addfood,listeFood,removeFood}
