@@ -26,7 +26,7 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
         
         totalAmount += itemPrice.price*cartItem[key]
     } 
-    console.log('me inside',totalAmount)
+    // console.log('me inside',totalAmount)
      return totalAmount;
    })()
 //    console.log('me outside',totalAmount)
@@ -39,6 +39,7 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
             addToCart,
             removeFromCart,
             getTotalCartAmount
+             
     }
     // console.log('this is the cart items: ',cartItem)
   

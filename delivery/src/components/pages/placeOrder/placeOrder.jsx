@@ -31,17 +31,17 @@ export default  function PlaceOrder(){
                     <div>
                         <div className="cart-tatal-details">
                             <p>Subtotal</p>
-                            <p>${getTotalCartAmount()}</p>
+                            <p>${getTotalCartAmount}</p>
                         </div>
                         <hr />
                         <div className="cart-tatal-details">
                             <p>Delevery Fee</p>
-                            <p>${2}</p>
+                            <p>${getTotalCartAmount !== 0? 2 : 0}</p>
                         </div>
                         <hr />
                         <div className="cart-tatal-details">
                               <b>Total</b>
-                              <b>${getTotalCartAmount() + 2}</b>
+                              <b>${getTotalCartAmount !== 0 ?getTotalCartAmount + 2:getTotalCartAmount}</b>
                         </div> 
                     </div>
                        <button>PROCEED TO PAYMENT</button>

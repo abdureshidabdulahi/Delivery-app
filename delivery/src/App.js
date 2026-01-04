@@ -24,6 +24,7 @@ function App() {
       </Routes>
     </div>
     <Footer/>
+    {/* <h1>hir react app is running</h1> */}
     </>
    
   );
