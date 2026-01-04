@@ -1,4 +1,4 @@
- import { useState } from 'react'
+ import { useEffect, useState } from 'react'
 import { assets } from '../../admin_assets/assets'
 import './add.css'
 
@@ -6,7 +6,7 @@ const Add = () => {
     const [image,setImage] = useState(false)
     const [data,setData] = useState({
         name:'',
-        descripton:'',
+        description:'',
         price:'',
         category:'salad'
     })
@@ -16,8 +16,12 @@ const Add = () => {
             console.log('this its it:',name)
             const value = e.target.value
             setData(data=>({...data,[name]:value}))
-            console.log(data)
+            // console.log(data)
+
     }
+    useEffect(()=>{
+        console.log(data)
+    })
   return (
     <div className='add'>
        <form className='flex-col' >
@@ -30,17 +34,17 @@ const Add = () => {
         </div>
         <div className="add-product-name flex-col">
             <p>product name</p>
-            <input onChange={onchangeHandler} value={data.name} type="text" name='rashka' placeholder='type here' />
+            <input onChange={onchangeHandler} type="text" name='name' placeholder='type here' />
         </div>
         <div className="add-product-description flex-col">
             <p>product description</p>
-            <textarea name="description" rows={6} placeholder='write content here' required></textarea>
+            <textarea onChange={onchangeHandler} name="description" rows={6} placeholder='write content here' required></textarea>
 
         </div>
         <div className="add-category-price">
             <div className="add-category flex-col">
-                <p>producn category</p>
-                <select name="category">
+                <p>product category</p>
+                <select onChange={onchangeHandler} value={data.category} name="category" >
                     <option value="Salad">Salad</option>
                     <option value="Rolls">Rolls</option>
                     <option value="Dessert">Dessert</option>
@@ -53,7 +57,7 @@ const Add = () => {
             </div>
         <div className="add-pirce flex-col ">
         <p>product price</p>
-        <input type="Number" name='price' placeholder='$20'/>
+        <input onChange={onchangeHandler} type="Number" name='price' placeholder='$20'/>
         </div>
         </div>
         <button type='submit' className='add-btn'>ADD</button>
