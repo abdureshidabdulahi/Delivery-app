@@ -7,8 +7,7 @@ const List = () => {
   const url = `http://localhost:4000`
   const [list,setList] = useState([])
   const fetchList = async ()=>{
-    const response = await axios.get(`${url}/api/food/list`)
-    console.log(response.data)
+    const response = await axios.get(`${url}/api/food/list`) 
     if(response.data.success){
       setList(response.data.data)
     }else{
@@ -21,8 +20,20 @@ const List = () => {
 
   },[])
   return (
-    <div>
-      <h1>this is the list </h1>
+    <div className='list flex-col'>
+      <p>All Foods List</p>
+      <div className="list-table">
+        <div className="list-table-format title">
+          <b>Image</b>
+          <b>Name</b>
+          <b>Category</b>
+          <b>Price</b>
+          <b>Action</b>
+        </div>
+        {list.map(()=>(
+          
+        ))}
+      </div>
     </div>
   )
 }
