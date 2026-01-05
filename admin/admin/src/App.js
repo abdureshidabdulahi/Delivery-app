@@ -6,10 +6,12 @@ import {Routes,Route} from 'react-router-dom'
 import Add from './pages/Add/add';
 import List from './pages/list/list';
 import Order from './pages/orders/order';
+import { ToastContainer} from 'react-toastify';
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer />
       <NavBar />
       <hr/>
       <div className='app-content'>
