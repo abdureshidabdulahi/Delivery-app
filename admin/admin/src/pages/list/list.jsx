@@ -30,9 +30,16 @@ const List = () => {
           <b>Price</b>
           <b>Action</b>
         </div>
-        {list.map(()=>(
-          
-        ))}
+        {list.map((item,index)=>{
+          return(
+             <div key={index} className="list-table-format">
+            <img src={`${url}/updoads` + item.image} alt="" />
+            <p>{item.name}</p>
+            <p>{item.category}</p>
+            <p>${item.price}</p>
+          </div>
+          )
+})}
       </div>
     </div>
   )
