@@ -23,10 +23,11 @@ const Add = () => {
 
     }
 
-
-    useEffect(()=>{
+  useEffect(()=>{
         console.log(data)
+       
     })
+   
 
     const onsubmitHandler = async (event)=>{
         event.preventDefault()
@@ -45,14 +46,15 @@ const Add = () => {
             category:'salad'
             })
             setImage(false)
+             console.log(formData)
             toast.success(response.data.message)
             
         }else{
             toast.error(response.data.message)
-        }
-
-
+        } 
+ 
     }
+           
   return (
     <div className='add'>
        <form className='flex-col' onSubmit={onsubmitHandler}>
