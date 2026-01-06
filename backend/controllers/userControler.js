@@ -13,19 +13,19 @@ import bcrypt from 'bcrypt'
  }
 
  const createToken = (id)=>{
-    return jwt.sign((id),process.env.JWT_SECRET)
+    return jwt.sign(({id}),process.env.JWT_SECRET)
  }
 
 
  //resister user
 
- const registerUser = async ()=>{
+ const registerUser = async (req,res)=>{
     const {name,password,email} = req.body
     try{
         // cheking if user already exist
-        const exist = await userModel.find({email})
+        const exist = await userModel.findOne({email})
         if(exist){
-            returnres.json({success:false,message:'user already exist'})
+            return res.json({success:false,message:'user already exist'})
         }
 
         //validating email format and strong password
@@ -38,6 +38,7 @@ import bcrypt from 'bcrypt'
         }
 
         // hashing user password
+
         const salt = await bcrypt.genSalt(10)
         const hashedPass =  await bcrypt.hash(password,salt)
         const newUser = new userModel({
@@ -47,12 +48,13 @@ import bcrypt from 'bcrypt'
         })
       const user=  await newUser.save()
       const token = createToken(user._id)
+      
       res.json({success:true,token})
 
     }catch(error){
-        consol.log(error)
-        res.json({success:false,message:'thsi is error'})
-
+        console.log(error)
+        res.json({success:false,message:  'this is the error'})
+        
     }
 
  }
