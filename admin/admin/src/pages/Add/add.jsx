@@ -4,8 +4,8 @@ import './add.css'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const Add = () => {
-    const url = 'http://localhost:4000';
+const Add = ({url}) => {
+  
     const [image,setImage] = useState(false)
     const [data,setData] = useState({
         name:'',
@@ -90,7 +90,7 @@ const Add = () => {
             </div>
         <div className="add-pirce flex-col ">
         <p>product price</p>
-        <input value={data.category} onChange={onchangeHandler} type="Number" name='price' placeholder='$20'/>
+        <input value={data.price} onChange={onchangeHandler} type="Number" name='price' placeholder='$20'/>
         </div>
         </div>
         <button type='submit' className='add-btn'>ADD</button>
