@@ -46,7 +46,7 @@ const Add = () => {
             category:'salad'
             })
             setImage(false)
-             console.log(formData)
+            
             toast.success(response.data.message)
             
         }else{
@@ -67,11 +67,11 @@ const Add = () => {
         </div>
         <div className="add-product-name flex-col">
             <p>product name</p>
-            <input onChange={onchangeHandler} type="text" name='name' placeholder='type here' />
+            <input onChange={onchangeHandler} type="text" name='name' placeholder='type here' value={data.name}/>
         </div>
         <div className="add-product-description flex-col">
             <p>product description</p>
-            <textarea onChange={onchangeHandler} name="description" rows={6} placeholder='write content here' required></textarea>
+            <textarea value={data.description} onChange={onchangeHandler} name="description" rows={6} placeholder='write content here' required></textarea>
 
         </div>
         <div className="add-category-price">
@@ -90,7 +90,7 @@ const Add = () => {
             </div>
         <div className="add-pirce flex-col ">
         <p>product price</p>
-        <input onChange={onchangeHandler} type="Number" name='price' placeholder='$20'/>
+        <input value={data.category} onChange={onchangeHandler} type="Number" name='price' placeholder='$20'/>
         </div>
         </div>
         <button type='submit' className='add-btn'>ADD</button>

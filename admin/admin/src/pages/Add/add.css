@@ -10,6 +10,9 @@
     gap: 20px;
 
 }
+.add-image-upload{
+    width: fit-content;
+}
 .add-image-upload img{
     width: 120px;
 
