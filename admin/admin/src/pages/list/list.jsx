@@ -15,7 +15,21 @@ const List = () => {
     }
   }
 
-  useEffect(()=>{
+
+
+  const onclickHandler =async (id)=>{
+   const response =  await axios.post(`${url}/api/food/remove`,{id:id})
+   
+   fetchList()
+   if(response.data.success){
+    toast.success(response.data.message)
+   }
+   else{
+    toast.error('error')
+   }
+
+  }
+    useEffect(()=>{
     fetchList()
 
   },[])
@@ -33,10 +47,11 @@ const List = () => {
         {list.map((item,index)=>{
           return(
              <div key={index} className="list-table-format">
-            <img src={`${url}/updoads` + item.image} alt="" />
+            <img src={`${url}/images/` + item.image} alt="" />
             <p>{item.name}</p>
             <p>{item.category}</p>
             <p>${item.price}</p>
+            <p onClick={()=>onclickHandler(item._id)} className='cursor'>X</p>
           </div>
           )
 })}
