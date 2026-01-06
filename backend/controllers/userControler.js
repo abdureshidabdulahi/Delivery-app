@@ -12,10 +12,48 @@ import bcrypt from 'bcrypt'
 
  }
 
+ const createToken = (id)=>{
+    return jwt.sign((id),process.env.JWT_SECRET)
+ }
+
 
  //resister user
 
  const registerUser = async ()=>{
+    const {name,password,email} = req.body
+    try{
+        // cheking if user already exist
+        const exist = await userModel.find({email})
+        if(exist){
+            returnres.json({success:false,message:'user already exist'})
+        }
+
+        //validating email format and strong password
+        if(!validator.isEmail(email)){
+            return res.json({success:false,message:'please enter valid email'})
+        }
+
+        if(password.length<8){
+            return res.json({success:false,message:'please enter strong password'})
+        }
+
+        // hashing user password
+        const salt = await bcrypt.genSalt(10)
+        const hashedPass =  await bcrypt.hash(password,salt)
+        const newUser = new userModel({
+            name:name,
+            email:email,
+            password:hashedPass
+        })
+      const user=  await newUser.save()
+      const token = createToken(user._id)
+      res.json({success:true,token})
+
+    }catch(error){
+        consol.log(error)
+        res.json({success:false,message:'thsi is error'})
+
+    }
 
  }
 
