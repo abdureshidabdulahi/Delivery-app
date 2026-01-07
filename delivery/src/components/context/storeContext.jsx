@@ -5,7 +5,10 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
  const StoreContextProvider = (props)=>{
     const [cartItem,setCartItem] = useState({})
     const url = 'http://localhost:4000'
-    const [token,setToken] = useState('')
+    const [token,setToken] = useState(()=>{
+        return   localStorage.getItem('token') || ''
+    
+    })
 
     const addToCart = (itemId)=>{
             if(!cartItem[itemId]){
