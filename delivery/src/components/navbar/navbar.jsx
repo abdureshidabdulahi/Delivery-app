@@ -1,11 +1,17 @@
  import { useContext, useState } from 'react';
 import { assets } from '../../food-del-assets/assets/frontend_assets/assets';
 import './navbar.css';
- import { Link } from 'react-router-dom';
+ import { Link, useNavigate } from 'react-router-dom';
 import { storeContext } from '../context/storeContext';
 
 const Navbar = ({setShowLogin}) => {
   const {getTotalCartAmount,token,setToken} = useContext(storeContext)
+  const navigate = useNavigate()
+  const logout = ()=>{
+                localStorage.removeItem('token')
+                setToken('')
+                navigate('/')
+  }
   const [menu,setMenu] =  useState('home')
    
   return (
@@ -32,7 +38,7 @@ const Navbar = ({setShowLogin}) => {
           <ul className='nav-profile-dropdown'>
             <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
             <hr />
-            <li><img src={assets.logo} alt="" /><p>LogOut</p></li>
+            <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>LogOut</p></li>
           </ul>
         </div>
       }
