@@ -4,6 +4,8 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
 
  const StoreContextProvider = (props)=>{
     const [cartItem,setCartItem] = useState({})
+    const url = 'http://localhost:4000'
+    const [token,setToken] = useState('')
 
     const addToCart = (itemId)=>{
             if(!cartItem[itemId]){
@@ -38,7 +40,10 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
             setCartItem,
             addToCart,
             removeFromCart,
-            getTotalCartAmount
+            getTotalCartAmount,
+            url,
+            token,
+            setToken
              
     }
     // console.log('this is the cart items: ',cartItem)
