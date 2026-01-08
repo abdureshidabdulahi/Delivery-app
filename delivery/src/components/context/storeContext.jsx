@@ -1,6 +1,8 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext,  useState } from "react";
+import axios from 'axios'
 import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
  export const storeContext = createContext(null)
+
 
  const StoreContextProvider = (props)=>{
     const [cartItem,setCartItem] = useState({})
@@ -35,7 +37,11 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
      return totalAmount;
    })()
 //    console.log('me outside',totalAmount)
+ 
    
+ 
+ 
+
 
     const contextValue={
             food_list,
@@ -46,7 +52,8 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
             getTotalCartAmount,
             url,
             token,
-            setToken
+            setToken,
+            
              
     }
     // console.log('this is the cart items: ',cartItem)

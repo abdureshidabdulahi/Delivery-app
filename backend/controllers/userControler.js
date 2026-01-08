@@ -21,12 +21,14 @@ import bcrypt from 'bcrypt'
             return res.json({success:false,message:'Invalid credientials'})
         }
         const token = createToken(user._id);
+        localStorage.setItem('token',token)
+         
         res.json({success:true,token})
           
     }catch(error){
         console.log(error)
         res.json({
-            success:false,message:error
+            success:false,message:'error'
         })
     }
 
