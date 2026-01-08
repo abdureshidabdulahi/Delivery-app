@@ -18,10 +18,12 @@ import bcrypt from 'bcrypt'
 
         const isMatch = await bcrypt.compare(password,user.password);
         if(!isMatch){
+           
             return res.json({success:false,message:'Invalid credientials'})
         }
-        const token = createToken(user._id);
-        localStorage.setItem('token',token)
+         const token = createToken(user._id);
+       
+        
          
         res.json({success:true,token})
           

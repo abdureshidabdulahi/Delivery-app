@@ -29,7 +29,7 @@ const LoginPopUp = ({setShowLogin}) => {
     if(response.data.success){
       const tokenFromServer = response.data.token
       setToken(tokenFromServer)
-      console.log(token)
+     
         localStorage.setItem('token',tokenFromServer)
       
       setShowLogin(false)
