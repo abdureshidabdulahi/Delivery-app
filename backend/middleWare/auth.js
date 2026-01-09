@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-const authMiddleWare =async (req,res,calback)=>{
+const authMiddleWare =async (req,res,next)=>{
             const {token} = req.headers
             if(!token){
                 return res.json({success:false,message:'notAuth login again'})
