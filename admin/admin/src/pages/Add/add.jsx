@@ -80,12 +80,12 @@ const Add = ({url}) => {
                 <select onChange={onchangeHandler} value={data.category} name="category" >
                     <option value="Salad">Salad</option>
                     <option value="Rolls">Rolls</option>
-                    <option value="Dessert">Dessert</option>
+                    <option value="Dessert">Deserts</option>
                     <option value="Sandwich">Sandwich</option>
                     <option value="Cake">Cake</option>
-                    <option value="pure veg">Pure veg</option>
+                    <option value="pure veg">Pure Veg</option>
                     <option value="Pasta">Pasta</option>
-                    <option value="Noddles">Noddles</option>
+                    <option value="Noddles">Noodles</option>
                 </select>
             </div>
         <div className="add-pirce flex-col ">
