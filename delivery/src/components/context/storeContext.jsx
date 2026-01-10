@@ -22,8 +22,12 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
        await axios.post(url + '/api/cart/add',{itemId},{headers:{token}})
     }
     }
-    const removeFromCart = (itemId)=>{
+
+    const removeFromCart =async (itemId)=>{
         setCartItem((pre)=>({...pre,[itemId]:pre[itemId]-1}))
+        if(token){
+            await axios.post(url + '/api/cart/remove',{itemId},{headers:{token}})
+        }
     }
    
  
