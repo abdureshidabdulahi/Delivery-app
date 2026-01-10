@@ -1,12 +1,12 @@
 import jwt from 'jsonwebtoken'
 
-const authMiddleWare =async (req,res,next)=>{
+const authMiddleWare = async (req,res,next)=>{
             const {token} = req.headers
             if(!token){
                 return res.json({success:false,message:'notAuth login again'})
             }
             try{
-                const token_decode =jwt.verify(token,process.env.JWT_SECRET);
+                const token_decode = jwt.verify(token,process.env.JWT_SECRET); 
                 req.body.userId = token_decode.id
                 next()
 
