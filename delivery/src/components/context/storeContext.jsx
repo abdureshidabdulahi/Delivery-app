@@ -12,16 +12,20 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
     
     })
 
-    const addToCart = (itemId)=>{
+    const addToCart = async (itemId)=>{
             if(!cartItem[itemId]){
                 setCartItem((pre)=>({...pre,[itemId]:1}))
             }else{
                 setCartItem((pre)=>({...pre,[itemId]:pre[itemId]+1}))
             }
+             if(token){
+       await axios.post(url + '/api/cart/add',{itemId},{headers:{token}})
+    }
     }
     const removeFromCart = (itemId)=>{
         setCartItem((pre)=>({...pre,[itemId]:pre[itemId]-1}))
     }
+   
  
  let totalAmount = 0;
    const getTotalCartAmount = (()=>{
