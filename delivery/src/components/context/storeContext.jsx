@@ -1,14 +1,15 @@
 import { createContext,  useState } from "react";
 import axios from 'axios'
-import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
+ 
  export const storeContext = createContext(null)
 
 
  const StoreContextProvider = (props)=>{
     const [cartItem,setCartItem] = useState({})
     const url = 'http://localhost:4000'
+    const [food_list,setFood_list] = useState([])
     const [token,setToken] = useState(()=>{
-        return   localStorage.getItem('token') || ''
+        return   localStorage.getItem('token') || '' 
     
     })
 
@@ -44,6 +45,22 @@ import { food_list } from "../../food-del-assets/assets/frontend_assets/assets";
     // console.log('me inside',totalAmount)
      return totalAmount;
    })()
+
+
+   const fetchFoodList = async ()=>{
+    try{
+       const response = await axios.get(`${url}/api/food/list`)
+       console.log(response)
+       setFood_list(response.data.data)
+
+    }catch(err){
+        console.log('this is foodlist ERROR',err)
+
+
+    }
+
+   }
+   fetchFoodList()
 //    console.log('me outside',totalAmount)
  
    
