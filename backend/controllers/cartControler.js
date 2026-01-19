@@ -7,7 +7,7 @@ const addToCart =async (req,res)=>{
     try{
         let userData = await userModel.findOne({_id:req.body.userId})
         const ras = req.body.userId 
-        console.log(req.body)
+        // console.log(req.body)
         
         let cartData = await userData.cartData;
         if(!cartData[req.body.itemId]){

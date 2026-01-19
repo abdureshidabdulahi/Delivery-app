@@ -47,16 +47,16 @@ import axios from 'axios'
      return totalAmount;
    })()
 
-//    const loadCartData =async ()=>{
-//            try{
-//              const response = await axios('https://localhost:4000/api/cart/get',{},{headers:{token}})
-//               setCartItem(response.data.cartData)
-//            }catch(err){
-//             console.log(err)
+   const loadCartData =async ()=>{
+           try{
+             const response = await axios('https://localhost:4000/api/cart/get',{},{headers:{token}})
+              setCartItem(response.data.cartData)
+           }catch(err){
+            console.log(err)
 
 
-//            }
-//    }
+           }
+   }
   
 
 
@@ -80,7 +80,7 @@ import axios from 'axios'
    
  useEffect(()=>{
      fetchFoodList()
-    // loadCartData()
+    loadCartData()
  })
  
 
