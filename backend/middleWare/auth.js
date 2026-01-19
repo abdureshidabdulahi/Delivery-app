@@ -14,7 +14,7 @@ const authMiddleWare = async (req,res,next)=>{
 
             }catch(err){
                 console.log(err)
-                res.json({success:false,message:'error inauth'})
+                res.json({success:false,message:'error inauth',err})
 
             }
 
