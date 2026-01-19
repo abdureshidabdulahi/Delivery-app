@@ -1,4 +1,4 @@
-import { createContext,  useState } from "react";
+import { createContext,  useEffect,  useState } from "react";
 import axios from 'axios'
  
  export const storeContext = createContext(null)
@@ -21,7 +21,7 @@ import axios from 'axios'
             }
              if(token){
        await axios.post(url + '/api/cart/add',{itemId},{headers:{token}})
-       
+
     }
     }
 
@@ -47,6 +47,19 @@ import axios from 'axios'
      return totalAmount;
    })()
 
+//    const loadCartData =async ()=>{
+//            try{
+//              const response = await axios('https://localhost:4000/api/cart/get',{},{headers:{token}})
+//               setCartItem(response.data.cartData)
+//            }catch(err){
+//             console.log(err)
+
+
+//            }
+//    }
+  
+
+
 
    const fetchFoodList = async ()=>{
     try{
@@ -61,11 +74,14 @@ import axios from 'axios'
     }
 
    }
-   fetchFoodList()
+  
 //    console.log('me outside',totalAmount)
  
    
- 
+ useEffect(()=>{
+     fetchFoodList()
+    // loadCartData()
+ })
  
 
 
