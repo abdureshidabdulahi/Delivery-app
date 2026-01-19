@@ -74,14 +74,22 @@ import axios from 'axios'
     }
 
    }
+   const  getCartFromDatabase = async ()=>{
+    const response = await axios (`${url}/api/cart/get`,{headers:{token}})
+    console.log('rashka its me',response.data)
+    setCartItem(response.data)
+   }
   
 //    console.log('me outside',totalAmount)
  
    
- useEffect(()=>{
+ useEffect(  ()=>{
      fetchFoodList()
     loadCartData()
- })
+    getCartFromDatabase()
+      
+
+ },[])
  
 
 
