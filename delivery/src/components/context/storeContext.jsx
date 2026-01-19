@@ -21,6 +21,7 @@ import axios from 'axios'
             }
              if(token){
        await axios.post(url + '/api/cart/add',{itemId},{headers:{token}})
+       
     }
     }
 
