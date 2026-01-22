@@ -8,10 +8,7 @@ import axios from 'axios'
     const [cartItem,setCartItem] = useState({})
     const url = 'http://localhost:4000'
     const [food_list,setFood_list] = useState([])
-    const [token,setToken] = useState(()=>{
-        return   localStorage.getItem('token') || '' 
-    
-    })
+    const [token,setToken] = useState(()=>localStorage.getItem('token') || '')
 
     const addToCart = async (itemId)=>{
             if(!cartItem[itemId]){
@@ -34,8 +31,7 @@ import axios from 'axios'
    
  
  let totalAmount = 0;
-   const getTotalCartAmount = (()=>{
-    console.log(cartItem)
+   const getTotalCartAmount = (()=>{ 
     for(let key in cartItem){
       
          
@@ -49,17 +45,17 @@ import axios from 'axios'
 
    const loadCartData =async ()=>{
            try{
-             const response = await axios('https://localhost:4000/api/cart/get',{headers:{token}})
-              setCartItem(response.data.cartData)
-            //   console.log('this is loadcartdata',setCartItem)
-            console.log('this is it',setCartItem)
+             const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
+              setCartItem(response.data) 
+            console.log('this is it cartitem',response.data)
            }catch(err){
-            console.log(err)
+            console.log('this is cartdataload from database error',err)
 
 
            }
    }
-    loadCartData() 
+    
+    // console.log('cart item',cartItem)
   
 
 
@@ -67,7 +63,7 @@ import axios from 'axios'
    const fetchFoodList = async ()=>{
     try{
        const response = await axios.get(`${url}/api/food/list`)
-       console.log(response)
+    //    console.log(response)
        setFood_list(response.data.data)
 
     }catch(err){
@@ -84,8 +80,13 @@ import axios from 'axios'
    
  useEffect(  ()=>{
      fetchFoodList()
+     
+     if(localStorage.getItem('token')){
+        setToken(localStorage.getItem('token'))
+     }
+     
    
-      
+      loadCartData()
 
  },[])
  
