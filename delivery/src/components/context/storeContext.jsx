@@ -32,12 +32,16 @@ import axios from 'axios'
  
  let totalAmount = 0;
    const getTotalCartAmount = (()=>{ 
-    for(let key in cartItem){
+    for(let key of food_list){
       
          
-           let itemPrice = food_list.find((product)=>product._id === key);
+        //    let itemPrice = food_list.find((product)=>product._id === key);
         
-        totalAmount += itemPrice.price*cartItem[key]
+        // totalAmount += itemPrice.price*cartItem[key]
+      for(let n in key){
+        if
+      }
+         
     } 
     // console.log('me inside',totalAmount)
      return totalAmount;
@@ -48,6 +52,7 @@ import axios from 'axios'
              const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
               setCartItem(response.data) 
             console.log('this is it cartitem',response.data)
+
            }catch(err){
             console.log('this is cartdataload from database error',err)
 
@@ -63,7 +68,7 @@ import axios from 'axios'
    const fetchFoodList = async ()=>{
     try{
        const response = await axios.get(`${url}/api/food/list`)
-    //    console.log(response)
+       console.log('this is foodlist',response.data.data)
        setFood_list(response.data.data)
 
     }catch(err){
@@ -73,13 +78,14 @@ import axios from 'axios'
     }
 
    }
+    fetchFoodList()
    
   
 //    console.log('me outside',totalAmount)
  
    
  useEffect(  ()=>{
-     fetchFoodList()
+    
      
      if(localStorage.getItem('token')){
         setToken(localStorage.getItem('token'))
@@ -87,6 +93,7 @@ import axios from 'axios'
      
    
       loadCartData()
+      console.log('this is the token',token)
 
  },[])
  
@@ -102,6 +109,7 @@ import axios from 'axios'
             url,
             token,
             setToken,
+           
             
              
     }
