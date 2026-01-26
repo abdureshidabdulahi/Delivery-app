@@ -10,6 +10,21 @@ import axios from 'axios'
     const [food_list,setFood_list] = useState([])
     const [token,setToken] = useState(()=>localStorage.getItem('token') || '')
 
+    const loadCartData =async ()=>{
+           try{
+             const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
+              setCartItem(response.data.cartData) 
+            //   console.log(response.data)
+            // console.log('this is it cartitem',response.data)
+
+           }catch(err){
+            console.log('this is cartdataload from database error',err)
+
+
+           }
+   }
+   
+
     const addToCart = async (itemId)=>{
             if(!cartItem[itemId]){
                 setCartItem((pre)=>({...pre,[itemId]:1}))
@@ -17,7 +32,7 @@ import axios from 'axios'
                 setCartItem((pre)=>({...pre,[itemId]:pre[itemId]+1}))
             }
              if(token){
-       await axios.post(url + '/api/cart/add',{itemId},{headers:{token}})
+       await axios.post(url + '/api/cart/add',{itemId},{headers:{token}}) 
 
     }
     }
@@ -30,44 +45,24 @@ import axios from 'axios'
     }
    
  
- let totalAmount = 0;
+  
    const getTotalCartAmount = (()=>{ 
-    for(let key of food_list){
-      
-         
-        //    let itemPrice = food_list.find((product)=>product._id === key);
-        
-        // totalAmount += itemPrice.price*cartItem[key]
-        let cartKey = Object.keys(cartItem)
-      for(let n of cartKey){
-        if(key._id=== n){
-           totalAmount += cartItem[n] * key.price
+   let totalAmount = 0;
+   
+    for(let key of food_list){ 
+        let cartKey = Object.keys(cartItem)  
+      for(let n in cartKey){  
+        if(key._id === cartKey[n]){
+            
+           totalAmount += cartItem[key._id] * key.price 
         }
       }
          
-    } 
-    // console.log('me inside',totalAmount)
+    }  
      return totalAmount;
    })()
 
-   const loadCartData =async ()=>{
-           try{
-             const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
-              setCartItem(response.data) 
-            // console.log('this is it cartitem',response.data)
-
-           }catch(err){
-            console.log('this is cartdataload from database error',err)
-
-
-           }
-   }
     
-    // console.log('cart item',cartItem)
-  
-
-
-
    const fetchFoodList = async ()=>{
     try{
        const response = await axios.get(`${url}/api/food/list`)
@@ -81,14 +76,14 @@ import axios from 'axios'
     }
 
    }
-    fetchFoodList()
+    
    
   
 //    console.log('me outside',totalAmount)
  
    
  useEffect(  ()=>{
-    
+    fetchFoodList()
      
      if(localStorage.getItem('token')){
         setToken(localStorage.getItem('token'))
@@ -98,7 +93,7 @@ import axios from 'axios'
       loadCartData()
       console.log('this is the token',token)
 
- },[])
+ },[ ])
  
 
 
