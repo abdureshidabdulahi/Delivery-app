@@ -16,6 +16,6 @@ let array = [
 for(let key of array){
     console.log(key)
     for(let n in key){
-        console.log(key[n])
+        console.log(key[name])
     }
 }

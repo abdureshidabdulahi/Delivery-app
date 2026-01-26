@@ -38,8 +38,11 @@ import axios from 'axios'
         //    let itemPrice = food_list.find((product)=>product._id === key);
         
         // totalAmount += itemPrice.price*cartItem[key]
-      for(let n in key){
-        if
+        let cartKey = Object.keys(cartItem)
+      for(let n of cartKey){
+        if(key._id=== n){
+           totalAmount += cartItem[n] * key.price
+        }
       }
          
     } 
@@ -51,7 +54,7 @@ import axios from 'axios'
            try{
              const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
               setCartItem(response.data) 
-            console.log('this is it cartitem',response.data)
+            // console.log('this is it cartitem',response.data)
 
            }catch(err){
             console.log('this is cartdataload from database error',err)
@@ -68,7 +71,7 @@ import axios from 'axios'
    const fetchFoodList = async ()=>{
     try{
        const response = await axios.get(`${url}/api/food/list`)
-       console.log('this is foodlist',response.data.data)
+    //    console.log('this is foodlist',response.data.data)
        setFood_list(response.data.data)
 
     }catch(err){
