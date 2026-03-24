@@ -2,14 +2,15 @@ import jwt from 'jsonwebtoken'
 
 const authMiddleWare = async (req,res,next)=>{
             const {token} = req.headers 
-            // if(!token){
-            //     return res.json({success:false,message:'not Auth login again'})
-            // }
+            if(!token){
+                console.log(' there is no token')
+                return res.json({success:false,message:'not Auth login again'})
+            }
             try{
                 const token_decode = jwt.verify(token,process.env.JWT_SECRET); 
-                console.log('this is the userid :',token_decode)
+                // console.log('this is the userid :',token_decode)
                 
-                req.userId = token_decode.id
+                req.userId = token_decode.id 
                 next()
 
             }catch(err){

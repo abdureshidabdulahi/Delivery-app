@@ -6,8 +6,7 @@ import userModel from '../models/userModel.js'
 const addToCart =async (req,res)=>{
     try{
         let userData = await userModel.findOne({_id:req.userId})
-        const ras = req.userId 
-        // console.log(req.body)
+        const ras = req.userId  
         
         let cartData = await userData.cartData;
         if(!cartData[req.body.itemId]){

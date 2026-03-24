@@ -36,6 +36,8 @@ import bcrypt from 'bcrypt'
 
  }
 
+ 
+
  const createToken = (id)=>{
     return jwt.sign({id},process.env.JWT_SECRET)
  }
@@ -57,7 +59,7 @@ import bcrypt from 'bcrypt'
             return res.json({success:false,message:'please enter valid email'})
         }
 
-        if(password.length<8){
+        if(password.length < 8){
             return res.json({success:false,message:'please enter strong password'})
         }
 

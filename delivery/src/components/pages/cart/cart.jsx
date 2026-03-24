@@ -31,9 +31,9 @@ export default function Cart(){
                             <div className="cart-items-title cart-items-item">
                                 <img src={ url + '/images/' + item.image} alt="" />
                                 <p>{item.name}</p>
-                                <p>${item.price}</p>
+                                <p>{item.price} Birr</p>
                                 <p>{cartItem[item._id]}</p>
-                                <p>${item.price*cartItem[item._id]}</p>
+                                <p>{item.price*cartItem[item._id]} Birr</p>
                                 <p onClick={()=>removeFromCart(item._id)} className='cross'>X</p>
                             </div>
                             <hr />
@@ -49,17 +49,17 @@ export default function Cart(){
                     <div>
                         <div className="cart-tatal-details">
                             <p>Subtotal</p>
-                            <p>${getTotalCartAmount}</p>
+                            <p>{getTotalCartAmount} Birr</p>
                         </div>
                         <hr />
                         <div className="cart-tatal-details">
                             <p>Delevery Fee</p>
-                            <p>${getTotalCartAmount !== 0 ? 2:0}</p>
+                            <p>{getTotalCartAmount !== 0 ? 30:0} Birr</p>
                         </div>
                         <hr />
                         <div className="cart-tatal-details">
                               <b>Total</b>
-                              <b>${getTotalCartAmount !== 0 ?getTotalCartAmount + 2:getTotalCartAmount }</b>
+                              <b>{getTotalCartAmount !== 0 ?getTotalCartAmount + 30:getTotalCartAmount } Birr</b>
                         </div> 
                     </div>
                        <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>

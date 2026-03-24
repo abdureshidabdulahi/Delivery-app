@@ -12,8 +12,10 @@ import axios from 'axios'
 
     const loadCartData =async ()=>{
            try{
-             const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
+            if(token){
+                const response = await axios.get('http://localhost:4000/api/cart/get',{headers:{token}})
               setCartItem(response.data.cartData) 
+            }
             //   console.log(response.data)
             // console.log('this is it cartitem',response.data)
 
@@ -44,21 +46,27 @@ import axios from 'axios'
         }
     }
    
+    console.log(token)
  
   
    const getTotalCartAmount = (()=>{ 
    let totalAmount = 0;
-   
-    for(let key of food_list){ 
-        let cartKey = Object.keys(cartItem)  
+  
+   if(token){
+       for(let key of food_list){ 
+        
+         let cartKey = Object.keys(cartItem)  
       for(let n in cartKey){  
         if(key._id === cartKey[n]){
             
            totalAmount += cartItem[key._id] * key.price 
         }
       }
+       
          
     }  
+   
+   }
      return totalAmount;
    })()
 
@@ -93,7 +101,7 @@ import axios from 'axios'
       loadCartData()
       console.log('this is the token',token)
 
- },[ ])
+ },[token])
  
 
 
